@@ -1,75 +1,58 @@
 ﻿#include <iostream>
 
-
-typedef struct Node
-{
-	int data;
-	Node* next;
-}Node;
-
-class LinkedList
+template <typename T>
+class VECTOR
 {
 private:
-	Node* head;
-	Node* tail;
+	int capacity = 0;
+	int size = 0;
 
-	int size;
+	T* array;
 
 public:
-
-	LinkedList()
+	VECTOR(int size = 1)
 	{
-		head = nullptr;
-		tail = nullptr;
-
-		size = 0;
+		capacity = size;
+		array = new T[capacity];
 	}
 
-	void Push_Front(int data)
+	void Push_Back(T data)
 	{
-		size++;
-		// 1. 새로운 노드를 생성합니다
-		Node* newNode = new Node;
-		// 2. 새로운 노드의 data 값을 저장합니다. <- 매개변수로
-		newNode->data = data;
-		// 3. 새로운 노드의 next 값을 null로 합니다.
-		newNode->next = nullptr;
-
-		if (head == nullptr)
+		if (size >= capacity)
 		{
-			newNode = head;
-			head = newNode;
+			capacity = capacity * 2;
+
+			Resize(capacity);
 		}
-		else if(head != nullptr)
+		array[size++] = data;
+	}
+
+	void Resize(int size)
+	{
+		// capacity에 새로운 size 값을 설정한다.
+		capacity = size;
+
+		// 새로운 포인터 변수를 생성해서 새롭게 만들어진
+		//
+		T* tempArray = new A[size];
+
+		// 새로운 메모리 공간의 값을 초기화합니다.
+		for (int i = 0; i < size; i++)
 		{
-			Node* curPtr;
-			newNode->next = head->next;
+			tempArray[i] = NULL;
 		}
 
-	}
+		for (int i = 0; i < this->size; i++)
+		{
+			tempArray[i] = array[i];
+		}
 
-	void Push_Back(int data)
-	{
-		Node* BackPtr = nullptr;
+		// array에 메모리 주소를 해제합니다.
+		delete array;
 
-		tail->next = BackPtr;
+		// array에 새로 할당한 메모리의 주소를 저장합니다.
 
-		BackPtr->data = data;
-	}
-
-	void Insert(Node* prevNode, int data)
-	{
-
-	}
-
-	void Pop_back()
-	{
-
-	}
-
-	void Pop_front()
-	{
-
+		array = tempArray;
 	}
 
 	int Size()
@@ -77,18 +60,34 @@ public:
 		return size;
 	}
 
-	~LinkedList()
+	void Pop_Back()
 	{
-
+		if (size <= 0)
+		{
+			return;
+		}
+		array[--size] = NULL;
 	}
 
+	// 연산자 오버로딩 [ ]
+	T& operator [ ] (const int& value)
+	{
+		return array[value];
+	}
+
+	~VECTOR()
+	{
+		delete array;
+	}
 };
 
 int main()
 {
-	LinkedList list;
+	VECTOR<int> b;
 
-	list.Push_Front(10);
+	b[0];
+
+
 
 	return 0;
 }
