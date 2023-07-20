@@ -1,92 +1,140 @@
 ﻿#include <iostream>
+#include <queue>
 
+#define SIZE 5
 template <typename T>
-class VECTOR
+class LinearQueue
 {
 private:
-	int capacity = 0;
-	int size = 0;
+	int front;
+	int rear;
+	int size;
 
-	T* array;
+	T array[SIZE];
 
 public:
-	VECTOR(int size = 1)
+
+	LinearQueue()
 	{
-		capacity = size;
-		array = new T[capacity];
+		front = 0;
+		rear = 0;
+		size = 0;
 	}
 
-	void Push_Back(T data)
+	void Push(T data)
 	{
-		if (size >= capacity)
+		if (IsFull())
 		{
-			capacity = capacity * 2;
-
-			Resize(capacity);
+			std::cout << "LinearQueue에 데이터가 가득 찼습니다." << std::endl;
 		}
-		array[size++] = data;
+		
+			array[rear++] = data;
+			size++;
+		
 	}
 
-	void Resize(int size)
+	void Pop()
 	{
-		// capacity에 새로운 size 값을 설정한다.
-		capacity = size;
-
-		// 새로운 포인터 변수를 생성해서 새롭게 만들어진
-		//
-		T* tempArray = new A[size];
-
-		// 새로운 메모리 공간의 값을 초기화합니다.
-		for (int i = 0; i < size; i++)
+		if (Empty() == true)
 		{
-			tempArray[i] = NULL;
+			std::cout << "Queue에 비어있습니다." << std::endl;
+			exit(1);
 		}
+		
+			array[front++] = NULL;
 
-		for (int i = 0; i < this->size; i++)
-		{
-			tempArray[i] = array[i];
-		}
-
-		// array에 메모리 주소를 해제합니다.
-		delete array;
-
-		// array에 새로 할당한 메모리의 주소를 저장합니다.
-
-		array = tempArray;
+			size--;
+		
 	}
 
-	int Size()
+	int & Size()
 	{
 		return size;
 	}
 
-	void Pop_Back()
+	T & Front()
 	{
-		if (size <= 0)
+		return array[front];
+	}
+
+	T & Back()
+	{
+		return array[rear - 1];
+	}
+
+	bool Empty()
+	{
+		if (front==rear)
 		{
-			return;
+			return true;
 		}
-		array[--size] = NULL;
+		else
+		{
+			return false;
+		}
 	}
 
-	// 연산자 오버로딩 [ ]
-	T& operator [ ] (const int& value)
+	bool IsFull()
 	{
-		return array[value];
-	}
-
-	~VECTOR()
-	{
-		delete array;
+		if (rear >= SIZE)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 };
 
+
+
 int main()
 {
-	VECTOR<int> b;
+#pragma region 선형 큐
+	// 배열의 공간에 들어간 데이터가 고정되어
+	// 데이터를 빼내더라도 초기화하지 않으면
+	// 원래 데이터가 있던 배열의 자리에 더 이상
+	// 다른 것이 들어갈 수 없는 형태의 Queue입니다.
 
-	b[0];
+	// std::queue<int> queue;
+	// 
+	// queue.push(10);
+	// queue.push(20);
+	// queue.push(30);
+	// queue.push(40);
+	// 
+	// std::cout << queue.front() << std::endl;
+	// std::cout << queue.back() << std::endl;
+	// 
+	// queue.pop();
+	// 
+	// std::cout << queue.size() << std::endl;
+	// std::cout << queue.empty() << std::endl;
 
+#pragma endregion
+
+	LinearQueue<int> queue;
+
+	queue.Push(10);
+	queue.Push(20);
+	queue.Push(30);
+	queue.Push(40);
+	queue.Push(50);
+	
+	queue.Pop();
+	queue.Pop();
+	queue.Pop();
+	queue.Pop();
+	queue.Pop();
+
+	queue.Pop();
+
+	queue.Push(10);
+
+	std::cout << queue.Size() << std::endl;
+	std::cout << queue.Front() << std::endl;
+	std::cout << queue.Back() << std::endl;
 
 
 	return 0;
