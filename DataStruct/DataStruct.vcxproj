@@ -137,6 +137,9 @@
     <ClInclude Include="(2023.7.18) 거품 정렬과 선택 정렬.h" />
     <ClInclude Include="(2023.7.19) 벡터.h" />
     <ClInclude Include="(2023.7.20) 선형 큐.h" />
+    <ClInclude Include="(2023.7.21) 원형 큐.h" />
+    <ClInclude Include="(2023.7.24) 삽입 정렬.h" />
+    <ClInclude Include="(2023.7.25) 트리.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
