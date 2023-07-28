@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataStruct.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="(2023.7.12) 연결 리스트.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -50,5 +45,16 @@
     <ClInclude Include="(2023.7.25) 트리.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="%282023.7.26%29 힙.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="(2023.7.27) 계수 정렬.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataStruct.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
