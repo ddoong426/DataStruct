@@ -1,3 +1,2 @@
 ﻿  DataStruct.cpp
-C:\Users\mom11\OneDrive\Desktop\자료 구조\DataStruct\DataStruct\DataStruct.cpp(136,31): error C2065: 'key': 선언되지 않은 식별자입니다.
-C:\Users\mom11\OneDrive\Desktop\자료 구조\DataStruct\DataStruct\DataStruct.cpp(150,28): error C2065: 'key': 선언되지 않은 식별자입니다.
+  DataStruct.vcxproj -> C:\Users\mom11\OneDrive\Desktop\자료 구조\DataStruct\x64\Debug\DataStruct.exe
