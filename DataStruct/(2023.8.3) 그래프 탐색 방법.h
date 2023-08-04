@@ -35,7 +35,7 @@ void BFS(int start)
 		std::cout << temp << " ";
 
 		// 7. 해당 원소와 연결된, 아직 방문하지 않은 원소들을 Queue에 넣어줍니다.
-		for (int i = 0; i <= bfsGraph[temp].size(); i++)
+		for (int i = 0; i < bfsGraph[temp].size(); i++)
 		{
 			int v = bfsGraph[temp][i];
 
@@ -104,7 +104,7 @@ int main()
 	// bfsGraph[5]의 노드
 	bfsGraph[5].push_back(2);
 
-	// BFS(0);
+	BFS(0);
 #pragma endregion
 
 #pragma region DFS
@@ -132,7 +132,7 @@ int main()
 	// dfsGraph[5]의 노드
 	dfsGraph[5].push_back(3);
 
-	DFS(0);
+	// DFS(0);
 #pragma endregion
 
 
