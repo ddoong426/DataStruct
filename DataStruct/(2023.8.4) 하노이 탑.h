@@ -60,25 +60,25 @@ public:
 int main()
 {
 #pragma region 하노이의 탑 
-	// int data = 0;
-	// 
-	// std::cin >> data;
-	// 
-	// Hanoi(data, 'A', 'B', 'C');
+	int data = 0;
+	
+	std::cin >> data;
+	
+	Hanoi(data, 'A', 'B', 'C');
 #pragma endregion
 
 #pragma region 공변 반환값
-	A aClass;
-	B bClass;
-
-	A& ref = bClass;
-
-	bClass.GetThis()->Print();
-
-	ref.GetThis()->Print();
-
-	std::cout << typeid(bClass.GetThis()).name() << std::endl;
-	std::cout << typeid(ref.GetThis()).name() << std::endl;
+	// A aClass;
+	// B bClass;
+	// 
+	// A& ref = bClass;
+	// 
+	// bClass.GetThis()->Print();
+	// 
+	// ref.GetThis()->Print();
+	// 
+	// std::cout << typeid(bClass.GetThis()).name() << std::endl;
+	// std::cout << typeid(ref.GetThis()).name() << std::endl;
 #pragma endregion
 
 
